@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Etch-A-Sketch</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+    <center>
+        <div class='container'></div>
+        <input type='button' class='reset-button' value='Reset'>
+    </center>
+</body>
+<script>
+    let firstPlay = true;
+    let sideSquares = 16;
+    const container = document.querySelector('.container');
+    const newGameButton = document.querySelector('input');
+    const body = document.querySelector('body');
+
+    newGameButton.addEventListener('click', newGame);
+
+    window.onload = newGame;
+
+    function newGame() {
+        if (!firstPlay) {
+            do {
+                sideSquares = prompt('Enter number of squares for each side (For 64 X 64 enter 64)');
+            } while (isNaN(sideSquares) || sideSquares <= 0);
+
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+        }
+
+        container.style.gridTemplateColumns = 'repeat(' + sideSquares + ', 1fr)';
+
+        for (let i = 0; i < sideSquares; i++) {
+            for (let j = 0; j < sideSquares; j++) {
+                const square = document.createElement('div');
+                
+                square.classList.add('square');
+                square.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'black';
+                });
+
+                container.appendChild(square);
+            }
+        }
+
+        firstPlay = false;
+    }
+</script>
+
+</html>

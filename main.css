@@ -1,0 +1,36 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.reset-button {
+    background-color: #ee0000; 
+    border: none;
+    color: white;
+    width: 180px;
+    height: 80px; 
+    font-size: 2em;  
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.reset-button:hover {
+    background-color: #aa0000;
+}
+
+.container {
+    display: grid; 
+    height: 600px;
+    width: 600px; 
+    margin-top: 10px;
+}
+
+.square {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: lightgrey;
+}
